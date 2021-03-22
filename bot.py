@@ -33,10 +33,10 @@ async def bug(ctx, *, arg):
 @bot.command()
 async def suggestie(ctx, *, arg):
     if (ctx.channel.id == settings.suggesties):
-        await  bot.get_channel(settings.suggesties).send("Suggestie: {0} | Door {1}".format(arg,ctx.author))   
+        msg = await  bot.get_channel(settings.suggesties).send("Suggestie: {0} | Door {1}".format(arg,ctx.author))   
         await ctx.message.delete()
-        await message.add_reaction('\U0001F44D')
-        await message.add_reaction('\U0001F44E')
+        await msg.add_reaction('\U0001F44D')
+        await msg.add_reaction('\U0001F44E')
     else:
         await ctx.message.delete()        
         msg = await ctx.send("Wilt u dit even in {0} doen, danku!".format(settings.suggesties))
